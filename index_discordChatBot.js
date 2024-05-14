@@ -1,20 +1,20 @@
 // Require the necessary discord.js classes
 const { Client,  Events, GatewayIntentBits } = require('discord.js');
-const { token, salon_id } = require('./config_test_a.json');
+const { token, salon_id } = require('./config.json');
 const RiveScript = require('rivescript')
 
 var bot = new RiveScript();
 
 // Load a directory full of RiveScript documents (.rive files). This is for
 // Node.JS only: it doesn't work on the web!
-bot.loadDirectory("brain").then(loading_done).catch(loading_error);
+//bot.loadDirectory("brain").then(loading_done).catch(loading_error);
 
 // Load an individual file.
-bot.loadFile("brain/testsuite.rive").then(loading_done).catch(loading_error);
+//bot.loadFile("brain/testsuite.rive").then(loading_done).catch(loading_error);
 
 // Load a list of files all at once (the best alternative to loadDirectory
 // for the web!)
-bot.loadFile(["brains/english.rs"
+bot.loadFile(["english.rs"
 ]).then(loading_done).catch(loading_error);
 
 // All file loading operations are asynchronous, so you need handlers
@@ -48,7 +48,7 @@ function loading_error(error, filename, lineno) {
 
 
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent,GatewayIntentBits.GuildMembers,] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
 
 
 const channel = client.channels.cache.get(salon_id);

@@ -1,9 +1,9 @@
 // Require the necessary discord.js classes
 const { Client,  Events, GatewayIntentBits } = require('discord.js');
-const { token, salon_id } = require('./config_test_a.json');
+const { token, salon_id } = require('./config.json');
 
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent,GatewayIntentBits.GuildMembers,] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
 
 
 const channel = client.channels.cache.get(salon_id);
